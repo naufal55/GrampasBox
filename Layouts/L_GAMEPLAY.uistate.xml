@@ -13,8 +13,8 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </camera>
     <snap-to-grid>1</snap-to-grid>
     <show-grid>1</show-grid>
-    <snap-width>50</snap-width>
-    <snap-height>50</snap-height>
+    <snap-width>25</snap-width>
+    <snap-height>25</snap-height>
     <show-collision-polys>0</show-collision-polys>
     <translucent-inactive-layers>0</translucent-inactive-layers>
     <properties>

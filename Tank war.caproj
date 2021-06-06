@@ -24,8 +24,8 @@
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
     <window-size>
-        <width>854</width>
-        <height>480</height>
+        <width>850</width>
+        <height>500</height>
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <preview-effects>1</preview-effects>
@@ -88,6 +88,15 @@
         </object-type>
         <object-type name="Keyboard" sid="642045802743959">
             <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="S_OBSTACLES" sid="247233546312746">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="234044238454650" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\TIUNIDA15\Pictures\assets\obj_crate005.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\TIUNIDA15\Pictures\assets\obj_crate002.png" />
+                </animation>
+            </animation-folder>
         </object-type>
     </object-folder>
     <families />
