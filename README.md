@@ -1,1 +1,1 @@
-this is tutorial of game developeing tank-war credit from grampa's box
+this is a tutorial to develop game for tank war
