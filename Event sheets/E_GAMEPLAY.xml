@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>E_GAMEPLAY</name>
+    <events>
+        <event-block sid="513266657889361">
+            <conditions>
+                <condition id="2" name="Key is down" sid="952323998660679" type="Keyboard">
+                    <param id="0" name="Key">65</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Rotate" id="0" name="Set speed" sid="768215829260205" type="S_PLAYER">
+                    <param id="0" name="Speed">-180</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="233297192051353">
+            <conditions>
+                <condition id="2" name="Key is down" sid="957682316527519" type="Keyboard">
+                    <param id="0" name="Key">68</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Rotate" id="0" name="Set speed" sid="151387762063433" type="S_PLAYER">
+                    <param id="0" name="Speed">180</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="387307203607414">
+            <conditions>
+                <condition id="2" inverted="1" name="Key is down" sid="676732602049123" type="Keyboard">
+                    <param id="0" name="Key">65</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="637868503670924" type="Keyboard">
+                    <param id="0" name="Key">68</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Rotate" id="0" name="Set speed" sid="327208144049751" type="S_PLAYER">
+                    <param id="0" name="Speed">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="444469307628807">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="477653873516107" type="Keyboard">
+                            <param id="0" name="Key">87</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="493762575462282" type="S_PLAYER">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="138105948797301">
+            <conditions>
+                <condition id="2" inverted="1" name="Key is down" sid="796418040135337" type="Keyboard">
+                    <param id="0" name="Key">87</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="5" name="Set enabled" sid="264370639819599" type="S_PLAYER">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

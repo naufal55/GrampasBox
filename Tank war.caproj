@@ -9,8 +9,16 @@
     <app-id>com.mycompany.myapp</app-id>
     <unique-id>2m2oqhlgof90t</unique-id>
     <saved-with-version>27900</saved-with-version>
-    <used-plugins />
-    <used-behaviors />
+    <used-plugins>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="Flash" version="1">Flash</behavior>
+        <behavior author="Scirra" id="Rotate" version="1">Rotate</behavior>
+        <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
+    </used-behaviors>
     <used-effects />
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
@@ -35,15 +43,63 @@
         <prop name="Sampling">Linear</prop>
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
-    <object-folder />
+    <object-folder>
+        <object-type name="S_BACKGROUND" sid="457835252004075">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="983391577653349" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\TIUNIDA15\Pictures\assets\light_sand_template.jpg" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="S_PLAYER" sid="522242726275804">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="PLAYERN" sid="185531362076667" type="number" />
+                <instance-variable name="ACTIVE" sid="260577729808207" type="number" />
+                <instance-variable name="SCORE" sid="447194776014076" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="BoundToLayout" sid="361941784722733">
+                    <behavior id="bound" />
+                </behavior-type>
+                <behavior-type name="Flash" sid="204876350340177">
+                    <behavior id="Flash" />
+                </behavior-type>
+                <behavior-type name="Bullet" sid="268703243253248">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="Rotate" sid="876520852595718">
+                    <behavior id="Rotate" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="P1" pingpong="0" repeatcount="1" repeatto="0" sid="245208424995068" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.500805" original-source="C:\Users\TIUNIDA15\Pictures\assets\tank1.png">
+                        <image-point name="BULLET" x="0.5" y="0.500805" />
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="P2" pingpong="0" repeatcount="1" repeatto="0" sid="849725769175694" speed="5">
+                    <frame duration="1" hotspotX="0.474443" hotspotY="1.20421" original-source="C:\Users\TIUNIDA15\Pictures\assets\tank2.png">
+                        <image-point name="BULLET" x="0.474443" y="1.20421" />
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Keyboard" sid="642045802743959">
+            <plugin id="Keyboard" />
+        </object-type>
+    </object-folder>
     <families />
     <layout-folder>
-        <layout>Layout 1.xml</layout>
+        <layout>L_GAMEPLAY.xml</layout>
     </layout-folder>
     <event-folder>
-        <event-sheet>Event sheet 1.xml</event-sheet>
+        <event-sheet>E_GAMEPLAY.xml</event-sheet>
     </event-folder>
-    <global-instances />
+    <global-instances>
+        <global-instance type="Keyboard" uid="2" />
+    </global-instances>
     <sounds-folder />
     <music-folder />
     <files-folder>
