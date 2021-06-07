@@ -148,6 +148,28 @@
         <object-type name="Function" sid="703656367988609">
             <plugin id="Function" />
         </object-type>
+        <object-type name="S_SCORE" sid="405902584022250">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="PLAYERN" sid="311252057509255" type="number" />
+                <instance-variable name="INDEX" sid="175081339826687" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="11" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="265714551126758" speed="5">
+                    <frame duration="1" hotspotX="0.505376" hotspotY="0.5" original-source="C:\Users\TIUNIDA15\Pictures\assets\Number collection.png" />
+                    <frame duration="1" hotspotX="0.505376" hotspotY="0.5" original-source="C:\Users\TIUNIDA15\Pictures\assets\Number collection.png" />
+                    <frame duration="1" hotspotX="0.505376" hotspotY="0.5" original-source="C:\Users\TIUNIDA15\Pictures\assets\Number collection.png" />
+                    <frame duration="1" hotspotX="0.505376" hotspotY="0.5" original-source="C:\Users\TIUNIDA15\Pictures\assets\Number collection.png" />
+                    <frame duration="1" hotspotX="0.505376" hotspotY="0.5" original-source="C:\Users\TIUNIDA15\Pictures\assets\Number collection.png" />
+                    <frame duration="1" hotspotX="0.505376" hotspotY="0.5" original-source="C:\Users\TIUNIDA15\Pictures\assets\Number collection.png" />
+                    <frame duration="1" hotspotX="0.505376" hotspotY="0.5" original-source="C:\Users\TIUNIDA15\Pictures\assets\Number collection.png" />
+                    <frame duration="1" hotspotX="0.505376" hotspotY="0.5" original-source="C:\Users\TIUNIDA15\Pictures\assets\Number collection.png" />
+                    <frame duration="1" hotspotX="0.505376" hotspotY="0.5" original-source="C:\Users\TIUNIDA15\Pictures\assets\Number collection.png" />
+                    <frame duration="1" hotspotX="0.505376" hotspotY="0.5" original-source="C:\Users\TIUNIDA15\Pictures\assets\Number collection.png" />
+                    <frame duration="1" hotspotX="0.505376" hotspotY="0.5" original-source="C:\Users\TIUNIDA15\Pictures\assets\Number collection.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>

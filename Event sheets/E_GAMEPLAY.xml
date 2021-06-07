@@ -83,6 +83,66 @@
                 </event-block>
             </sub-events>
         </event-block>
+        <event-block sid="486341711200964">
+            <conditions>
+                <condition behavior="Flash" id="1" name="On flash ended" sid="905688046230345" type="S_PLAYER" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="222349139828930" type="S_PLAYER">
+                    <param id="0" name="Instance variable">ACTIVE</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="232335438894147" type="S_BULLET" />
+            </actions>
+            <sub-events>
+                <event-block sid="949773286436873">
+                    <conditions>
+                        <condition id="-19" name="Pick all" sid="723202656182326" type="System">
+                            <param id="0" name="Object">S_PLAYER</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="410293244125512">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="476872165688429" type="S_PLAYER">
+                                    <param id="0" name="Instance variable">PLAYERN</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="926482380526237" type="S_PLAYER">
+                                    <param id="0" name="X">75</param>
+                                    <param id="1" name="Y">250</param>
+                                </action>
+                                <action id="-8" name="Set angle" sid="223301275971453" type="S_PLAYER">
+                                    <param id="0" name="Angle">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="631286392361373">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="787465014246813" type="S_PLAYER">
+                                    <param id="0" name="Instance variable">PLAYERN</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="893673552278069" type="S_PLAYER">
+                                    <param id="0" name="X">775</param>
+                                    <param id="1" name="Y">250</param>
+                                </action>
+                                <action id="-8" name="Set angle" sid="447012033863246" type="S_PLAYER">
+                                    <param id="0" name="Angle">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
         <event-block sid="392579409596472">
             <conditions>
                 <condition id="-7" name="Compare instance variable" sid="648917000570135" type="S_PLAYER">
