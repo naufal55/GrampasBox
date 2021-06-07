@@ -10,6 +10,7 @@
     <unique-id>2m2oqhlgof90t</unique-id>
     <saved-with-version>27900</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
     </used-plugins>
@@ -18,6 +19,7 @@
         <behavior author="Scirra" id="Flash" version="1">Flash</behavior>
         <behavior author="Scirra" id="Rotate" version="1">Rotate</behavior>
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
+        <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
     </used-behaviors>
     <used-effects />
     <configurations>
@@ -73,15 +75,19 @@
                     <behavior id="Rotate" />
                 </behavior-type>
             </behaviors>
+            <container>
+                <type>S_PLAYER</type>
+                <type>S_COLLIDER</type>
+            </container>
             <animation-folder>
                 <animation framecount="1" loop="0" name="P1" pingpong="0" repeatcount="1" repeatto="0" sid="245208424995068" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.500805" original-source="C:\Users\TIUNIDA15\Pictures\assets\tank1.png">
-                        <image-point name="BULLET" x="0.5" y="0.500805" />
+                        <image-point name="BULLET" x="1" y="0.500805" />
                     </frame>
                 </animation>
                 <animation framecount="1" loop="0" name="P2" pingpong="0" repeatcount="1" repeatto="0" sid="849725769175694" speed="5">
-                    <frame duration="1" hotspotX="0.474443" hotspotY="1.20421" original-source="C:\Users\TIUNIDA15\Pictures\assets\tank2.png">
-                        <image-point name="BULLET" x="0.474443" y="1.20421" />
+                    <frame duration="1" hotspotX="0.500655" hotspotY="0.50081" original-source="C:\Users\TIUNIDA15\Pictures\assets\tank2.png">
+                        <image-point name="BULLET" x="1" y="0.50081" />
                     </frame>
                 </animation>
             </animation-folder>
@@ -100,11 +106,47 @@
         </object-type>
         <object-type name="S_COLLIDER" sid="730896752908730">
             <plugin id="Sprite" />
+            <container>
+                <type>S_PLAYER</type>
+                <type>S_COLLIDER</type>
+            </container>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="719129440766870" speed="5">
-                    <frame duration="1" hotspotX="0.533333" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0" hotspotY="0.5" />
                 </animation>
             </animation-folder>
+        </object-type>
+        <object-type name="S_BULLET" sid="385962180046199">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="SHOOTER" sid="651148020519295" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Bullet" sid="345154554245034">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="994848392960419">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="284053828865725" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\TIUNIDA15\Pictures\assets\Bullet.png">
+                        <collision-poly>
+                            <point x="0.934524" y="0.266304" />
+                            <point x="0.988095" y="0.5" />
+                            <point x="0.910714" y="0.760869" />
+                            <point x="0.726191" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                            <point x="0.738095" y="0" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Function" sid="703656367988609">
+            <plugin id="Function" />
         </object-type>
     </object-folder>
     <families />
@@ -116,6 +158,7 @@
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="2" />
+        <global-instance type="Function" uid="20" />
     </global-instances>
     <sounds-folder />
     <music-folder />

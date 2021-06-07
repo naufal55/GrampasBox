@@ -3,70 +3,319 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>E_GAMEPLAY</name>
     <events>
-        <event-block sid="513266657889361">
+        <event-block sid="301514121855883">
             <conditions>
-                <condition id="2" name="Key is down" sid="952323998660679" type="Keyboard">
-                    <param id="0" name="Key">65</param>
-                </condition>
+                <condition id="-2" name="On start of layout" sid="810017689502882" type="System" />
             </conditions>
             <actions>
-                <action behavior="Rotate" id="0" name="Set speed" sid="768215829260205" type="S_PLAYER">
-                    <param id="0" name="Speed">-180</param>
+                <action id="-9" name="Destroy" sid="107408662339489" type="S_BULLET" />
+            </actions>
+        </event-block>
+        <event-block sid="784891128146228">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="620391749936850" type="System" />
+            </conditions>
+            <actions>
+                <action id="-4" name="Set position to another object" sid="238504349080319" type="S_COLLIDER">
+                    <param id="0" name="Object">S_PLAYER</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+                <action id="-8" name="Set angle" sid="926830122987074" type="S_COLLIDER">
+                    <param id="0" name="Angle">S_PLAYER.Angle</param>
                 </action>
             </actions>
         </event-block>
-        <event-block sid="233297192051353">
+        <event-block sid="651080492413516">
             <conditions>
-                <condition id="2" name="Key is down" sid="957682316527519" type="Keyboard">
-                    <param id="0" name="Key">68</param>
+                <condition id="0" name="On collision with another object" sid="850647177133227" type="S_BULLET">
+                    <param id="0" name="Object">S_OBSTACLES</param>
                 </condition>
             </conditions>
             <actions>
-                <action behavior="Rotate" id="0" name="Set speed" sid="151387762063433" type="S_PLAYER">
-                    <param id="0" name="Speed">180</param>
-                </action>
+                <action id="-9" name="Destroy" sid="193717534477257" type="S_BULLET" />
             </actions>
         </event-block>
-        <event-block sid="387307203607414">
+        <event-block sid="893739066464329">
             <conditions>
-                <condition id="2" inverted="1" name="Key is down" sid="676732602049123" type="Keyboard">
-                    <param id="0" name="Key">65</param>
-                </condition>
-                <condition id="2" inverted="1" name="Key is down" sid="637868503670924" type="Keyboard">
-                    <param id="0" name="Key">68</param>
+                <condition id="0" name="On collision with another object" sid="726798163916409" type="S_BULLET">
+                    <param id="0" name="Object">S_PLAYER</param>
                 </condition>
             </conditions>
-            <actions>
-                <action behavior="Rotate" id="0" name="Set speed" sid="327208144049751" type="S_PLAYER">
-                    <param id="0" name="Speed">0</param>
-                </action>
-            </actions>
+            <actions />
             <sub-events>
-                <event-block sid="444469307628807">
+                <event-block sid="864470214820810">
                     <conditions>
-                        <condition id="2" name="Key is down" sid="477653873516107" type="Keyboard">
-                            <param id="0" name="Key">87</param>
-                        </condition>
+                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="556547832532801" type="S_PLAYER" />
                     </conditions>
-                    <actions>
-                        <action behavior="Bullet" id="5" name="Set enabled" sid="493762575462282" type="S_PLAYER">
-                            <param id="0" name="State">1</param>
-                        </action>
-                    </actions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="968216128603912">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="548137462851741" type="S_BULLET">
+                                    <param id="0" name="Instance variable">SHOOTER</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">S_PLAYER.PLAYERN</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="761807797792156" type="S_BULLET" />
+                                <action behavior="Flash" id="0" name="Flash" sid="504469332329765" type="S_PLAYER">
+                                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                                    <param id="2" name="Duration">1.0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="552198788127624" type="S_PLAYER">
+                                    <param id="0" name="Instance variable">ACTIVE</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action behavior="Rotate" id="0" name="Set speed" sid="139381044779128" type="S_PLAYER">
+                                    <param id="0" name="Speed">0</param>
+                                </action>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="431849136126854" type="S_PLAYER">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action behavior="Rotate" id="0" name="Set speed" sid="329499197999278" type="S_PLAYER">
+                                    <param id="0" name="Speed">720</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-block>
-        <event-block sid="138105948797301">
+        <event-block sid="392579409596472">
             <conditions>
-                <condition id="2" inverted="1" name="Key is down" sid="796418040135337" type="Keyboard">
-                    <param id="0" name="Key">87</param>
+                <condition id="-7" name="Compare instance variable" sid="648917000570135" type="S_PLAYER">
+                    <param id="0" name="Instance variable">ACTIVE</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
                 </condition>
             </conditions>
-            <actions>
-                <action behavior="Bullet" id="5" name="Set enabled" sid="264370639819599" type="S_PLAYER">
-                    <param id="0" name="State">0</param>
-                </action>
-            </actions>
+            <actions />
+            <sub-events>
+                <event-block sid="754501907646050">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="642737141190790" type="S_PLAYER">
+                            <param id="0" name="Instance variable">PLAYERN</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="513266657889361">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="952323998660679" type="Keyboard">
+                                    <param id="0" name="Key">65</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Rotate" id="0" name="Set speed" sid="768215829260205" type="S_PLAYER">
+                                    <param id="0" name="Speed">-180</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="233297192051353">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="957682316527519" type="Keyboard">
+                                    <param id="0" name="Key">68</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Rotate" id="0" name="Set speed" sid="151387762063433" type="S_PLAYER">
+                                    <param id="0" name="Speed">180</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="387307203607414">
+                            <conditions>
+                                <condition id="2" inverted="1" name="Key is down" sid="676732602049123" type="Keyboard">
+                                    <param id="0" name="Key">65</param>
+                                </condition>
+                                <condition id="2" inverted="1" name="Key is down" sid="637868503670924" type="Keyboard">
+                                    <param id="0" name="Key">68</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Rotate" id="0" name="Set speed" sid="327208144049751" type="S_PLAYER">
+                                    <param id="0" name="Speed">0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="444469307628807">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="477653873516107" type="Keyboard">
+                                            <param id="0" name="Key">87</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="693498856740385">
+                                            <conditions>
+                                                <condition id="1" inverted="1" name="Is overlapping another object" sid="644740852804338" type="S_COLLIDER">
+                                                    <param id="0" name="Object">S_OBSTACLES</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="Bullet" id="5" name="Set enabled" sid="493762575462282" type="S_PLAYER">
+                                                    <param id="0" name="State">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block any="1" sid="138105948797301">
+                            <conditions>
+                                <condition id="2" inverted="1" name="Key is down" sid="796418040135337" type="Keyboard">
+                                    <param id="0" name="Key">87</param>
+                                </condition>
+                                <condition id="0" name="On collision with another object" sid="407700733931827" type="S_COLLIDER">
+                                    <param id="0" name="Object">S_OBSTACLES</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="264370639819599" type="S_PLAYER">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="278649821669214">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="505600774425021" type="Keyboard">
+                                    <param id="0" name="Key">32</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="885762722822271" type="S_PLAYER">
+                                    <param id="0" name="Object">S_BULLET</param>
+                                    <param id="1" name="Layer">&quot;GAMEPLAY&quot;</param>
+                                    <param id="2" name="Image point">&quot;BULLET&quot;</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="631501244355155" type="S_BULLET">
+                                    <param id="0" name="Angle">S_PLAYER.Angle</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="785746320291529" type="S_BULLET">
+                                    <param id="0" name="Instance variable">SHOOTER</param>
+                                    <param id="1" name="Value">S_PLAYER.PLAYERN</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="294781725772243">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="437007681824658" type="S_PLAYER">
+                            <param id="0" name="Instance variable">PLAYERN</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="349015234034540">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="386805559698073" type="Keyboard">
+                                    <param id="0" name="Key">100</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Rotate" id="0" name="Set speed" sid="451029558380159" type="S_PLAYER">
+                                    <param id="0" name="Speed">-180</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="518908207173457">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="469724340893808" type="Keyboard">
+                                    <param id="0" name="Key">102</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Rotate" id="0" name="Set speed" sid="322879444952225" type="S_PLAYER">
+                                    <param id="0" name="Speed">180</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="825700665424173">
+                            <conditions>
+                                <condition id="2" inverted="1" name="Key is down" sid="578750196746765" type="Keyboard">
+                                    <param id="0" name="Key">100</param>
+                                </condition>
+                                <condition id="2" inverted="1" name="Key is down" sid="305246824898293" type="Keyboard">
+                                    <param id="0" name="Key">102</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Rotate" id="0" name="Set speed" sid="138588548248721" type="S_PLAYER">
+                                    <param id="0" name="Speed">0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="758803964908473">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="198410320679193" type="Keyboard">
+                                            <param id="0" name="Key">104</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="204970902821198">
+                                            <conditions>
+                                                <condition id="1" inverted="1" name="Is overlapping another object" sid="679872523413844" type="S_COLLIDER">
+                                                    <param id="0" name="Object">S_OBSTACLES</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="Bullet" id="5" name="Set enabled" sid="687565513511237" type="S_PLAYER">
+                                                    <param id="0" name="State">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block any="1" sid="419158595898421">
+                            <conditions>
+                                <condition id="2" inverted="1" name="Key is down" sid="848931414374459" type="Keyboard">
+                                    <param id="0" name="Key">104</param>
+                                </condition>
+                                <condition id="0" name="On collision with another object" sid="290677568264621" type="S_COLLIDER">
+                                    <param id="0" name="Object">S_OBSTACLES</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="132610495200398" type="S_PLAYER">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="291670704160443">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="544512366131007" type="Keyboard">
+                                    <param id="0" name="Key">13</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="616910389799030" type="S_PLAYER">
+                                    <param id="0" name="Object">S_BULLET</param>
+                                    <param id="1" name="Layer">&quot;GAMEPLAY&quot;</param>
+                                    <param id="2" name="Image point">&quot;BULLET&quot;</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="445250046576308" type="S_BULLET">
+                                    <param id="0" name="Angle">S_PLAYER.Angle</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="917233339083733" type="S_BULLET">
+                                    <param id="0" name="Instance variable">SHOOTER</param>
+                                    <param id="1" name="Value">S_PLAYER.PLAYERN</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>
