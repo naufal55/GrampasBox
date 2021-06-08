@@ -25,6 +25,30 @@
                 </action>
             </actions>
         </event-block>
+        <event-block sid="973759358518474">
+            <conditions>
+                <condition id="-11" name="For Each" sid="684387300593799" type="System">
+                    <param id="0" name="Object">S_PLAYER</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="370518526611837">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="353888788120094" type="S_SCORE">
+                            <param id="0" name="Instance variable">PLAYERN</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">S_PLAYER.PLAYERN</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="333557384324847" type="S_SCORE">
+                            <param id="0" name="Frame number">int(mid(str(zeropad(S_PLAYER.SCORE,2)),S_SCORE.INDEX,1))</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
         <event-block sid="651080492413516">
             <conditions>
                 <condition id="0" name="On collision with another object" sid="850647177133227" type="S_BULLET">

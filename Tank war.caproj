@@ -155,7 +155,7 @@
                 <instance-variable name="INDEX" sid="175081339826687" type="number" />
             </instance-variables>
             <animation-folder>
-                <animation framecount="11" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="265714551126758" speed="5">
+                <animation framecount="11" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="265714551126758" speed="0">
                     <frame duration="1" hotspotX="0.505376" hotspotY="0.5" original-source="C:\Users\TIUNIDA15\Pictures\assets\Number collection.png" />
                     <frame duration="1" hotspotX="0.505376" hotspotY="0.5" original-source="C:\Users\TIUNIDA15\Pictures\assets\Number collection.png" />
                     <frame duration="1" hotspotX="0.505376" hotspotY="0.5" original-source="C:\Users\TIUNIDA15\Pictures\assets\Number collection.png" />

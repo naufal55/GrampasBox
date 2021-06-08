@@ -432,7 +432,7 @@
                     <instance-variables>
                         <PLAYERN>1</PLAYERN>
                         <ACTIVE>1</ACTIVE>
-                        <SCORE>0</SCORE>
+                        <SCORE>23</SCORE>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="BoundToLayout">
@@ -505,7 +505,7 @@
                     <instance-variables>
                         <PLAYERN>2</PLAYERN>
                         <ACTIVE>1</ACTIVE>
-                        <SCORE>0</SCORE>
+                        <SCORE>25</SCORE>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="BoundToLayout">
@@ -637,8 +637,8 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <PLAYERN>0</PLAYERN>
-                        <INDEX>0</INDEX>
+                        <PLAYERN>1</PLAYERN>
+                        <INDEX>1</INDEX>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -664,7 +664,7 @@
                     </properties>
                     <instance-variables>
                         <PLAYERN>0</PLAYERN>
-                        <INDEX>0</INDEX>
+                        <INDEX>999</INDEX>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -690,7 +690,7 @@
                     </properties>
                     <instance-variables>
                         <PLAYERN>2</PLAYERN>
-                        <INDEX>1</INDEX>
+                        <INDEX>0</INDEX>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -722,32 +722,6 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>550</x>
-                        <y>50</y>
-                        <z>0</z>
-                        <width>36</width>
-                        <height>58</height>
-                        <depth>0</depth>
-                        <hotspotX>0.505376339</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="S_SCORE" uid="28">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <instance-variables>
-                        <PLAYERN>1</PLAYERN>
-                        <INDEX>0</INDEX>
-                    </instance-variables>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>350</x>
                         <y>50</y>
                         <z>0</z>
                         <width>36</width>
