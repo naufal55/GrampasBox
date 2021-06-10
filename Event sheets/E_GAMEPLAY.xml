@@ -86,7 +86,7 @@
                                 <action behavior="Flash" id="0" name="Flash" sid="504469332329765" type="S_PLAYER">
                                     <param id="0" name="&apos;On&apos; time">0.1</param>
                                     <param id="1" name="&apos;Off&apos; time">0.1</param>
-                                    <param id="2" name="Duration">1.0</param>
+                                    <param id="2" name="Duration">2</param>
                                 </action>
                                 <action id="-10" name="Set value" sid="552198788127624" type="S_PLAYER">
                                     <param id="0" name="Instance variable">ACTIVE</param>
@@ -102,6 +102,33 @@
                                     <param id="0" name="Speed">720</param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="203949654457476">
+                                    <conditions>
+                                        <condition id="-19" name="Pick all" sid="165429185922732" type="System">
+                                            <param id="0" name="Object">S_PLAYER</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="727346534464552">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="946689978096190" type="S_PLAYER">
+                                                    <param id="0" name="Instance variable">PLAYERN</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">S_BULLET.SHOOTER</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-11" name="Add to" sid="230642365758711" type="S_PLAYER">
+                                                    <param id="0" name="Instance variable">SCORE</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>
