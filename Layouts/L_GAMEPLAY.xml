@@ -425,14 +425,15 @@
                 <instance type="S_PLAYER" uid="1">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
+                        <initial-animation>P1</initial-animation>
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
                         <PLAYERN>1</PLAYERN>
                         <ACTIVE>1</ACTIVE>
-                        <SCORE>23</SCORE>
+                        <SCORE>0</SCORE>
+                        <MULTI_ID></MULTI_ID>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="BoundToLayout">
@@ -473,79 +474,6 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="S_COLLIDER" uid="21">
-                    <properties>
-                        <initial-visibility>Invisible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>775</x>
-                        <y>250</y>
-                        <z>0</z>
-                        <width>25</width>
-                        <height>40</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>3.141592741</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="S_PLAYER" uid="22">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>P2</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <instance-variables>
-                        <PLAYERN>2</PLAYERN>
-                        <ACTIVE>1</ACTIVE>
-                        <SCORE>25</SCORE>
-                    </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="BoundToLayout">
-                            <properties>
-                                <bound-by>Edge</bound-by>
-                            </properties>
-                        </behavior-instance>
-                        <behavior-instance type="Flash" />
-                        <behavior-instance type="Bullet">
-                            <properties>
-                                <speed>100</speed>
-                                <acceleration>0</acceleration>
-                                <gravity>0</gravity>
-                                <bounce-off-solids>No</bounce-off-solids>
-                                <set-angle>Yes</set-angle>
-                                <initial-state>Enabled</initial-state>
-                            </properties>
-                        </behavior-instance>
-                        <behavior-instance type="Rotate">
-                            <properties>
-                                <speed>0</speed>
-                                <acceleration>0</acceleration>
-                            </properties>
-                        </behavior-instance>
-                    </behavior-instances>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>775</x>
-                        <y>250</y>
-                        <z>0</z>
-                        <width>48.436519623</width>
-                        <height>43.219806671</height>
-                        <depth>0</depth>
-                        <hotspotX>0.500655293</hotspotX>
-                        <hotspotY>0.500810385</hotspotY>
-                        <angle>3.141592741</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
                 <instance type="S_BULLET" uid="18">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
@@ -555,6 +483,7 @@
                     </properties>
                     <instance-variables>
                         <SHOOTER>0</SHOOTER>
+                        <SHOOTER_MULTI></SHOOTER_MULTI>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Bullet">
@@ -729,6 +658,33 @@
                         <depth>0</depth>
                         <hotspotX>0.505376339</hotspotX>
                         <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="T_DEBUG" uid="28">
+                    <properties>
+                        <text>Text</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Arial,-16</font>
+                        <color>0,0,0</color>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                        <vertical-alignment>Top</vertical-alignment>
+                        <hotspot>Top-left</hotspot>
+                        <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>50</x>
+                        <y>25</y>
+                        <z>0</z>
+                        <width>150</width>
+                        <height>25</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>

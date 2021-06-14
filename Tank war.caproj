@@ -12,7 +12,9 @@
     <used-plugins>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Multiplayer" version="1">Multiplayer</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
@@ -60,6 +62,7 @@
                 <instance-variable name="PLAYERN" sid="185531362076667" type="number" />
                 <instance-variable name="ACTIVE" sid="260577729808207" type="number" />
                 <instance-variable name="SCORE" sid="447194776014076" type="number" />
+                <instance-variable name="MULTI_ID" sid="722593825827955" type="string" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="BoundToLayout" sid="361941784722733">
@@ -80,13 +83,23 @@
                 <type>S_COLLIDER</type>
             </container>
             <animation-folder>
-                <animation framecount="1" loop="0" name="P1" pingpong="0" repeatcount="1" repeatto="0" sid="245208424995068" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.500805" original-source="C:\Users\TIUNIDA15\Pictures\assets\tank1.png">
+                <animation framecount="1" loop="0" name="P1" pingpong="0" repeatcount="1" repeatto="0" sid="245208424995068" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.500805" original-source="C:\Users\TIUNIDA15\Desktop\P1.png">
                         <image-point name="BULLET" x="1" y="0.500805" />
+                        <collision-poly>
+                            <point x="0.0235602" y="0.0289855" />
+                            <point x="0.5" y="0.101449" />
+                            <point x="0.90445" y="0.117552" />
+                            <point x="0.997382" y="0.499195" />
+                            <point x="0.90445" y="0.882448" />
+                            <point x="0.5" y="0.879227" />
+                            <point x="0.0235602" y="0.971014" />
+                            <point x="0.170157" y="0.499195" />
+                        </collision-poly>
                     </frame>
                 </animation>
-                <animation framecount="1" loop="0" name="P2" pingpong="0" repeatcount="1" repeatto="0" sid="849725769175694" speed="5">
-                    <frame duration="1" hotspotX="0.500655" hotspotY="0.50081" original-source="C:\Users\TIUNIDA15\Pictures\assets\tank2.png">
+                <animation framecount="1" loop="0" name="P2" pingpong="0" repeatcount="1" repeatto="0" sid="849725769175694" speed="0">
+                    <frame duration="1" hotspotX="0.500655" hotspotY="0.50081" original-source="C:\Users\TIUNIDA15\Desktop\P2.png">
                         <image-point name="BULLET" x="1" y="0.50081" />
                     </frame>
                 </animation>
@@ -120,6 +133,7 @@
             <plugin id="Sprite" />
             <instance-variables>
                 <instance-variable name="SHOOTER" sid="651148020519295" type="number" />
+                <instance-variable name="SHOOTER_MULTI" sid="277721424555741" type="string" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Bullet" sid="345154554245034">
@@ -170,6 +184,12 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="T_DEBUG" sid="964080277416432">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Multiplayer" sid="846895958493521">
+            <plugin id="Multiplayer" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
@@ -181,6 +201,7 @@
     <global-instances>
         <global-instance type="Keyboard" uid="2" />
         <global-instance type="Function" uid="20" />
+        <global-instance type="Multiplayer" uid="29" />
     </global-instances>
     <sounds-folder />
     <music-folder />

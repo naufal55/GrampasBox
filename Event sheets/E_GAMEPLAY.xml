@@ -3,14 +3,321 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>E_GAMEPLAY</name>
     <events>
-        <event-block sid="301514121855883">
-            <conditions>
-                <condition id="-2" name="On start of layout" sid="810017689502882" type="System" />
-            </conditions>
-            <actions>
-                <action id="-9" name="Destroy" sid="107408662339489" type="S_BULLET" />
-            </actions>
-        </event-block>
+        <event-group description="" sid="677129711878171" title="SIGNALING">
+            <sub-events>
+                <event-block sid="301514121855883">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="810017689502882" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="107408662339489" type="S_BULLET" />
+                        <action id="11" name="Sync object" sid="422955194371867" type="Multiplayer">
+                            <param id="0" name="Object">S_PLAYER</param>
+                            <param id="1" name="Data">3</param>
+                            <param id="2" name="Precision">1</param>
+                            <param id="3" name="Bandwidth">0</param>
+                        </action>
+                        <action id="1" name="Connect" sid="356348052929562" type="Multiplayer">
+                            <param id="0" name="Server">&quot;wss://multiplayer.scirra.com&quot;</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="458621423883041">
+                            <conditions>
+                                <condition id="12" name="Supports multiplayer" sid="416632204942295" type="Multiplayer" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="590392755686345" type="T_DEBUG">
+                                    <param id="0" name="Text">&quot;SUPPOERTED&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="623598571927997">
+                            <conditions>
+                                <condition id="12" inverted="1" name="Supports multiplayer" sid="191155773462937" type="Multiplayer" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="218020074542644" type="T_DEBUG">
+                                    <param id="0" name="Text">&quot; NOT SUPPOERTED&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="302327297761590">
+                    <conditions>
+                        <condition id="2" name="On connected" sid="492146061127494" type="Multiplayer" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="433108839926747" type="T_DEBUG">
+                            <param id="0" name="Text">&quot;CONNECTED&quot;</param>
+                        </action>
+                        <action id="4" name="Log in" sid="100831405404361" type="Multiplayer">
+                            <param id="0" name="Alias">&quot;TESTER&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="621485258520316">
+                    <conditions>
+                        <condition id="4" name="On logged in" sid="172029084695461" type="Multiplayer" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="852045548925188" type="T_DEBUG">
+                            <param id="0" name="Text">&quot;LOGGED IN&quot;</param>
+                        </action>
+                        <action id="5" name="Join room" sid="385631123770390" type="Multiplayer">
+                            <param id="0" name="Game">&quot;C2-COMBAT&quot;</param>
+                            <param id="1" name="Instance">&quot;default&quot;</param>
+                            <param id="2" name="Room">&quot;ROOM1&quot;</param>
+                            <param id="3" name="Max peers">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="712100786268847">
+                    <conditions>
+                        <condition id="5" name="On joined room" sid="856859246250232" type="Multiplayer" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="457639879840120">
+                            <conditions>
+                                <condition id="10" name="Is host" sid="822244267767603" type="Multiplayer" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="701193528104649" type="T_DEBUG">
+                                    <param id="0" name="Text">&quot;HOST&quot;</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="174341011426694" type="S_PLAYER">
+                                    <param id="0" name="Instance variable">MULTI_ID</param>
+                                    <param id="1" name="Value">Multiplayer.MyID</param>
+                                </action>
+                                <action id="13" name="Associate object with peer" sid="281422688894773" type="Multiplayer">
+                                    <param id="0" name="Object">S_PLAYER</param>
+                                    <param id="1" name="Peer ID">Multiplayer.MyID</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="341013417478779" type="System">
+                                    <param id="0" name="Group name">&quot;HOST&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="996904557235050">
+                            <conditions>
+                                <condition id="10" inverted="1" name="Is host" sid="681577657475557" type="Multiplayer" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="506348451807101" type="T_DEBUG">
+                                    <param id="0" name="Text">&quot;PEER&quot;</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="123894639585246" type="S_PLAYER" />
+                                <action id="-12" name="Set group active" sid="214392735961969" type="System">
+                                    <param id="0" name="Group name">&quot;PEER&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="993514906482370" title="HOST">
+            <sub-events>
+                <event-block sid="365482405014901">
+                    <conditions>
+                        <condition id="11" name="On peer connected" sid="824676765586247" type="Multiplayer" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="290973324670295" type="System">
+                            <param id="0" name="Object to create">S_PLAYER</param>
+                            <param id="1" name="Layer">&quot;GAMEPLAY&quot;</param>
+                            <param id="2" name="X">775</param>
+                            <param id="3" name="Y">250</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="296039671460221" type="S_PLAYER">
+                            <param id="0" name="Angle">180</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="177473531781160" type="S_PLAYER">
+                            <param id="0" name="Animation">&quot;P2&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="805714140700871" type="S_PLAYER">
+                            <param id="0" name="Instance variable">MULTI_ID</param>
+                            <param id="1" name="Value">Multiplayer.PeerID</param>
+                        </action>
+                        <action id="13" name="Associate object with peer" sid="924828529339182" type="Multiplayer">
+                            <param id="0" name="Object">S_PLAYER</param>
+                            <param id="1" name="Peer ID">Multiplayer.PeerID</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-group description="" sid="488739199561853" title="HOST_CONTROLS">
+                    <sub-events>
+                        <event-block sid="549870810619694">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="648917000570135" type="S_PLAYER">
+                                    <param id="0" name="Instance variable">ACTIVE</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="754501907646050">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="329730132214357" type="S_PLAYER">
+                                            <param id="0" name="Instance variable">MULTI_ID</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">Multiplayer.MyID</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="513266657889361">
+                                            <conditions>
+                                                <condition id="2" name="Key is down" sid="952323998660679" type="Keyboard">
+                                                    <param id="0" name="Key">65</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="Rotate" id="0" name="Set speed" sid="768215829260205" type="S_PLAYER">
+                                                    <param id="0" name="Speed">-180</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="233297192051353">
+                                            <conditions>
+                                                <condition id="2" name="Key is down" sid="957682316527519" type="Keyboard">
+                                                    <param id="0" name="Key">68</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="Rotate" id="0" name="Set speed" sid="151387762063433" type="S_PLAYER">
+                                                    <param id="0" name="Speed">180</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="387307203607414">
+                                            <conditions>
+                                                <condition id="2" inverted="1" name="Key is down" sid="676732602049123" type="Keyboard">
+                                                    <param id="0" name="Key">65</param>
+                                                </condition>
+                                                <condition id="2" inverted="1" name="Key is down" sid="637868503670924" type="Keyboard">
+                                                    <param id="0" name="Key">68</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="Rotate" id="0" name="Set speed" sid="327208144049751" type="S_PLAYER">
+                                                    <param id="0" name="Speed">0</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="444469307628807">
+                                                    <conditions>
+                                                        <condition id="2" name="Key is down" sid="477653873516107" type="Keyboard">
+                                                            <param id="0" name="Key">87</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="693498856740385">
+                                                            <conditions>
+                                                                <condition id="1" inverted="1" name="Is overlapping another object" sid="644740852804338" type="S_COLLIDER">
+                                                                    <param id="0" name="Object">S_OBSTACLES</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action behavior="Bullet" id="5" name="Set enabled" sid="493762575462282" type="S_PLAYER">
+                                                                    <param id="0" name="State">1</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block any="1" sid="138105948797301">
+                                            <conditions>
+                                                <condition id="2" inverted="1" name="Key is down" sid="796418040135337" type="Keyboard">
+                                                    <param id="0" name="Key">87</param>
+                                                </condition>
+                                                <condition id="0" name="On collision with another object" sid="407700733931827" type="S_COLLIDER">
+                                                    <param id="0" name="Object">S_OBSTACLES</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="Bullet" id="5" name="Set enabled" sid="264370639819599" type="S_PLAYER">
+                                                    <param id="0" name="State">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="278649821669214">
+                                            <conditions>
+                                                <condition id="0" name="On key pressed" sid="505600774425021" type="Keyboard">
+                                                    <param id="0" name="Key">32</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Spawn another object" sid="885762722822271" type="S_PLAYER">
+                                                    <param id="0" name="Object">S_BULLET</param>
+                                                    <param id="1" name="Layer">&quot;GAMEPLAY&quot;</param>
+                                                    <param id="2" name="Image point">&quot;BULLET&quot;</param>
+                                                </action>
+                                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="631501244355155" type="S_BULLET">
+                                                    <param id="0" name="Angle">S_PLAYER.Angle</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="785746320291529" type="S_BULLET">
+                                                    <param id="0" name="Instance variable">SHOOTER_MULTI</param>
+                                                    <param id="1" name="Value">S_PLAYER.MULTI_ID</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="877623318789132" title="PEER">
+            <sub-events>
+                <event-block sid="720968276306784">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="528913111087346" type="S_PLAYER" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="815335007366472" type="S_PLAYER">
+                            <param id="0" name="Instance variable">MULTI_ID</param>
+                            <param id="1" name="Value">Multiplayer.PeerID</param>
+                        </action>
+                        <action id="13" name="Associate object with peer" sid="558986809493607" type="Multiplayer">
+                            <param id="0" name="Object">S_PLAYER</param>
+                            <param id="1" name="Peer ID">Multiplayer.PeerID</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="806962481024528">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="734278079686331" type="S_PLAYER">
+                                    <param id="0" name="Instance variable">MULTI_ID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">Multiplayer.MyID</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="16" name="Enable local input prediction" sid="243585847817106" type="Multiplayer">
+                                    <param id="0" name="Object">S_PLAYER</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="926330363109504" type="S_PLAYER">
+                                    <param id="0" name="Animation">&quot;P2&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
         <event-block sid="784891128146228">
             <conditions>
                 <condition id="-1" name="Every tick" sid="620391749936850" type="System" />
@@ -76,9 +383,9 @@
                         <event-block sid="968216128603912">
                             <conditions>
                                 <condition id="-7" name="Compare instance variable" sid="548137462851741" type="S_BULLET">
-                                    <param id="0" name="Instance variable">SHOOTER</param>
+                                    <param id="0" name="Instance variable">SHOOTER_MULTI</param>
                                     <param id="1" name="Comparison">1</param>
-                                    <param id="2" name="Value">S_PLAYER.PLAYERN</param>
+                                    <param id="2" name="Value">S_PLAYER.MULTI_ID</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -196,7 +503,7 @@
         </event-block>
         <event-block sid="392579409596472">
             <conditions>
-                <condition id="-7" name="Compare instance variable" sid="648917000570135" type="S_PLAYER">
+                <condition id="-7" name="Compare instance variable" sid="482746434273603" type="S_PLAYER">
                     <param id="0" name="Instance variable">ACTIVE</param>
                     <param id="1" name="Comparison">0</param>
                     <param id="2" name="Value">1</param>
@@ -204,117 +511,6 @@
             </conditions>
             <actions />
             <sub-events>
-                <event-block sid="754501907646050">
-                    <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="642737141190790" type="S_PLAYER">
-                            <param id="0" name="Instance variable">PLAYERN</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">1</param>
-                        </condition>
-                    </conditions>
-                    <actions />
-                    <sub-events>
-                        <event-block sid="513266657889361">
-                            <conditions>
-                                <condition id="2" name="Key is down" sid="952323998660679" type="Keyboard">
-                                    <param id="0" name="Key">65</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Rotate" id="0" name="Set speed" sid="768215829260205" type="S_PLAYER">
-                                    <param id="0" name="Speed">-180</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="233297192051353">
-                            <conditions>
-                                <condition id="2" name="Key is down" sid="957682316527519" type="Keyboard">
-                                    <param id="0" name="Key">68</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Rotate" id="0" name="Set speed" sid="151387762063433" type="S_PLAYER">
-                                    <param id="0" name="Speed">180</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="387307203607414">
-                            <conditions>
-                                <condition id="2" inverted="1" name="Key is down" sid="676732602049123" type="Keyboard">
-                                    <param id="0" name="Key">65</param>
-                                </condition>
-                                <condition id="2" inverted="1" name="Key is down" sid="637868503670924" type="Keyboard">
-                                    <param id="0" name="Key">68</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Rotate" id="0" name="Set speed" sid="327208144049751" type="S_PLAYER">
-                                    <param id="0" name="Speed">0</param>
-                                </action>
-                            </actions>
-                            <sub-events>
-                                <event-block sid="444469307628807">
-                                    <conditions>
-                                        <condition id="2" name="Key is down" sid="477653873516107" type="Keyboard">
-                                            <param id="0" name="Key">87</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions />
-                                    <sub-events>
-                                        <event-block sid="693498856740385">
-                                            <conditions>
-                                                <condition id="1" inverted="1" name="Is overlapping another object" sid="644740852804338" type="S_COLLIDER">
-                                                    <param id="0" name="Object">S_OBSTACLES</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action behavior="Bullet" id="5" name="Set enabled" sid="493762575462282" type="S_PLAYER">
-                                                    <param id="0" name="State">1</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
-                                    </sub-events>
-                                </event-block>
-                            </sub-events>
-                        </event-block>
-                        <event-block any="1" sid="138105948797301">
-                            <conditions>
-                                <condition id="2" inverted="1" name="Key is down" sid="796418040135337" type="Keyboard">
-                                    <param id="0" name="Key">87</param>
-                                </condition>
-                                <condition id="0" name="On collision with another object" sid="407700733931827" type="S_COLLIDER">
-                                    <param id="0" name="Object">S_OBSTACLES</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Bullet" id="5" name="Set enabled" sid="264370639819599" type="S_PLAYER">
-                                    <param id="0" name="State">0</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="278649821669214">
-                            <conditions>
-                                <condition id="0" name="On key pressed" sid="505600774425021" type="Keyboard">
-                                    <param id="0" name="Key">32</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="0" name="Spawn another object" sid="885762722822271" type="S_PLAYER">
-                                    <param id="0" name="Object">S_BULLET</param>
-                                    <param id="1" name="Layer">&quot;GAMEPLAY&quot;</param>
-                                    <param id="2" name="Image point">&quot;BULLET&quot;</param>
-                                </action>
-                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="631501244355155" type="S_BULLET">
-                                    <param id="0" name="Angle">S_PLAYER.Angle</param>
-                                </action>
-                                <action id="-10" name="Set value" sid="785746320291529" type="S_BULLET">
-                                    <param id="0" name="Instance variable">SHOOTER</param>
-                                    <param id="1" name="Value">S_PLAYER.PLAYERN</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
-                </event-block>
                 <event-block sid="294781725772243">
                     <conditions>
                         <condition id="-7" name="Compare instance variable" sid="437007681824658" type="S_PLAYER">
